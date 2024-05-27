@@ -1,7 +1,7 @@
 job('Aplicacion-Nodejs-Docker-DSL') {
     description('Aplicación Node JS Docker DSL para el curso de Jenkins')
     scm {
-        git('https://github.com/puchevcp/nodejs-DSL.git', 'main') { node ->
+        git('https://github.com/puchevcp/nodejs-dsl.git', 'main') { node ->
             node / gitConfigName('puchevcp')
             node / gitConfigEmail('puche.vcp@gmail.com')
         }
@@ -14,7 +14,7 @@ job('Aplicacion-Nodejs-Docker-DSL') {
     }
     steps {
         dockerBuildAndPublish {
-            repositoryName('puchevcp/nodejs-DSL')
+            repositoryName('puchevcp/nodejs-dsl')
             tag('${GIT_REVISION,length=7}')
             registryCredentials('docker-hub')
             forcePull(false)
